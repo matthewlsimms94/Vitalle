@@ -5,10 +5,17 @@ import android.graphics.Canvas;
 /**
  * Created by Note05 on 24/09/2016.
  */
-public interface GameObject {
+public abstract class GameObject {
 
-    public void draw(Canvas canvas);
-    public void update();
+    int x,y,height,width;
 
-
+    public void isTouched()
+    {
+        //check for touch blah blah
+        //if true
+        onTouch();
+    }
+    public abstract void onTouch();
+    public abstract void draw(Canvas canvas);
+    public abstract void update();
 }
