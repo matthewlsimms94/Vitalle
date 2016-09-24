@@ -13,6 +13,7 @@ import android.view.SurfaceView;
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
 
+    private Sprite testSprite;
     public GamePanel(Context context){
         super(context);
 
@@ -22,7 +23,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
         setFocusable(true);
 
-
+        testSprite = new Sprite(R.drawable.test_sheet,context,6,6);
     }
 
     @Override
@@ -56,13 +57,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update(){
-
+        testSprite.update();
     }
 
     @Override
     public void draw(Canvas canvas){
-
         super.draw(canvas);
+        testSprite.draw(canvas);
     }
 
 }
