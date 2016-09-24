@@ -7,6 +7,7 @@ import android.graphics.Rect;
 /**
  * Created by Note05 on 24/09/2016.
  */
+/*
 public class Character implements GameObject {
 
     private Rect rectangle;
@@ -26,3 +27,4 @@ public class Character implements GameObject {
 
     }
 }
+*/
