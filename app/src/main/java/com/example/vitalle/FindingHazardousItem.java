@@ -14,8 +14,8 @@ public class FindingHazardousItem extends GameObject {
     private int itemId;
 
     //Constructor
-    public FindingHazardousItem(int x, int y, int height, int width,int itemId, Sprite sprite){
-        super(x, y, height, width, sprite);
+    public FindingHazardousItem(int x, int y, int height, int width,int itemId, Sprite sprite, float xScale, float yScale){
+        super(x, y, height, width, sprite,xScale,yScale);
         this.itemId = itemId;
 
     }

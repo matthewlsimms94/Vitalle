@@ -11,8 +11,8 @@ public class Character extends GameObject {
     static final public int iMax = 100;
     static int lowFood;
 
-    Character(int x, int y, int height, int width, Sprite sprite) {
-        super(x, y, height, width, sprite);
+    Character(int x, int y, int height, int width, Sprite sprite,float xScale,float yScale) {
+        super(x, y, height, width, sprite, xScale, yScale);
         iFood = iMax;
         iHealth = iMax;
         iFun = iMax;

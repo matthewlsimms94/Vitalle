@@ -36,13 +36,13 @@ public class FindingGamePanel extends GamePanel {
         touchPoint = new Point(0,0);
         Random r = new Random();
         int randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(100, 100, 300, 300, randomId,testSprite));
+        HazardousItems.add(new FindingHazardousItem(100, 100, 300, 300, randomId,testSprite, scaleX, scaleY));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(800,1200,300,300,randomId,testSprite2));
+        HazardousItems.add(new FindingHazardousItem(800,1200,300,300,randomId,testSprite2, scaleX, scaleY));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(100,1200,300,300,randomId,testSprite3));
+        HazardousItems.add(new FindingHazardousItem(100,1200,300,300,randomId,testSprite3, scaleX, scaleY));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(800, 100, 300, 300, randomId, testSprite4));
+        HazardousItems.add(new FindingHazardousItem(800, 100, 300, 300, randomId, testSprite4, scaleX, scaleY));
 
         setFocusable(true);
 

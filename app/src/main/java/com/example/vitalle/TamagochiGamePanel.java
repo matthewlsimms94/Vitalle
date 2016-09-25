@@ -31,7 +31,7 @@ public class TamagochiGamePanel extends GamePanel{
 
         background = new Sprite(R.drawable.home_bkg,context,1,2,scaleX,scaleY);
 
-        buttonFood = new Button(5,5,100,100,1, context,testSprite); //x, y, height, width
+        buttonFood = new Button(5,5,100,100,1, context,testSprite, scaleX, scaleY); //x, y, height, width
         touchPoint = new Point(0,0);
 
         setFocusable(true);
