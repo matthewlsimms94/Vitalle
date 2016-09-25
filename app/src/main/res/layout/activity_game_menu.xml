@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:weightSum="3.0"
+    tools:context="com.example.vitalle.GameMenuActivity">
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight = "1"
+        android:id="@+id/FirstLineButtons"
+        android:weightSum="2.0">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="Adventure Game"
+            android:id="@+id/AdventureGameButton"
+            android:onClick="OpenAdventureGame"
+            android:layout_weight="1" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="Finding Game"
+            android:onClick="OpenFindingGame"
+            android:id="@+id/FindingGameButton"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:id="@+id/SecondLineButtons"
+        android:weightSum="2.0">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="B1"
+            android:id="@+id/InactiveButton1" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="B2"
+            android:id="@+id/InactiveButton2" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:id="@+id/ThirdLineButtons"
+        android:weightSum="2.0">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="B3"
+            android:id="@+id/InactiveButton3" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="B4"
+            android:id="@+id/InactiveButton4" />
+    </LinearLayout>
+
+</LinearLayout>
