@@ -13,7 +13,8 @@ public class Items extends GameObject {
     private Rect rectangle;
 
     //constructor
-    public Items (x,y,height,width){
+    public Items (/*x,y,height,width*/){
+        super();
         this.rectangle = rectangle;
     }
     @Override
@@ -28,9 +29,16 @@ public class Items extends GameObject {
     public void update(){
 
     }
+
+    @Override
+    public void onTouch()
+    {
+
+    }
+
     //coordinates of item
     public void update(Point point){
         //ltrb
-        rectangle.get(/*position*/);
+        //rectangle.get(/*position*/);
          }
 }
