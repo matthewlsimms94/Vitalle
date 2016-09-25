@@ -27,7 +27,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
         thread = new MainThread(getHolder(),this);
 
-        item = new Items(new Rect(100,100,200,200));
+        //item = new Items(new Rect(100,100,200,200));
         itemPoint = new Point(150,150);
 
         setFocusable(true);
@@ -65,22 +65,22 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         return super.onTouchEvent(event);
 
         //when the user presses down on the surface]
-        case MotionEvent.ACTION_DOWN;
-            touchPoint.set((int)event.getX(), (int)event.getY());
-            item.isTouched(touchPoint,itemPoint)
+        //case MotionEvent.ACTION_DOWN;
+            //touchPoint.set((int)event.getX(), (int)event.getY());
+            //item.isTouched(touchPoint,itemPoint)
     }
 
     public void update(){
         testSprite.update();
         //update the coordinates of the item
-        item.update(itemPoint);
+        //item.update(itemPoint);
     }
 
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
         testSprite.draw(canvas);
-        item.draw(canvas);
+        //item.draw(canvas);
     }
 
 }

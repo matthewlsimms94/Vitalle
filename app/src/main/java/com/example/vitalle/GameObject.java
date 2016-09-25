@@ -8,6 +8,11 @@ import android.graphics.Canvas;
 public abstract class GameObject {
 
     int x,y,height,width;
+    //Rectangle thajhsjkejhesrejkesrea;
+    public GameObject()
+    {
+        //NOTHING
+    }
 
     public void isTouched()
     {
