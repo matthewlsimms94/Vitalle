@@ -22,22 +22,27 @@ public class FindingHazardousItem extends GameObject {
 
     @Override
     public void draw(Canvas canvas){
-        super.draw(canvas);
+        if(wasTouched){
+
+        } else {
+            super.draw(canvas);
+        }
     }
 
     @Override
     public void update(){
-        super.update();
-        if (wasTouched){
-            //stop updating
+        if(wasTouched){
+
+        } else {
+            super.update();
         }
+            //stop updating
     }
 
     @Override
     public void onTouch(){
-        if (itemId < 4) {
-            wasTouched = true;
-        }
+        wasTouched = true;
+
         //Disappear
     }
 

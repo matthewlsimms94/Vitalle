@@ -28,18 +28,21 @@ public class FindingGamePanel extends GamePanel {
 
         thread = new MainThread(getHolder(),this);
 
-        Sprite testSprite = new Sprite(R.drawable.test_sheet, context, 6, 6, scaleX, scaleY);
+        Sprite testSprite = new Sprite(R.drawable.icon_test, context, 1, 6, scaleX, scaleY);
+        Sprite testSprite2 = new Sprite(R.drawable.icon_test, context, 1, 6, scaleX, scaleY);
+        Sprite testSprite3 = new Sprite(R.drawable.icon_test, context, 1, 6, scaleX, scaleY);
+        Sprite testSprite4 = new Sprite(R.drawable.icon_test, context, 1, 6, scaleX, scaleY);
 
         touchPoint = new Point(0,0);
         Random r = new Random();
         int randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(100, 100, 200, 200, randomId,testSprite));
+        HazardousItems.add(new FindingHazardousItem(100, 100, 300, 300, randomId,testSprite));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(400,400,200,200,randomId,testSprite));
+        HazardousItems.add(new FindingHazardousItem(800,1200,300,300,randomId,testSprite2));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(100,400,200,200,randomId,testSprite));
+        HazardousItems.add(new FindingHazardousItem(100,1200,300,300,randomId,testSprite3));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(400,100,200,200,randomId,testSprite));
+        HazardousItems.add(new FindingHazardousItem(800, 100, 300, 300, randomId, testSprite4));
 
         setFocusable(true);
 
@@ -53,16 +56,17 @@ public class FindingGamePanel extends GamePanel {
         switch(event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchPoint.set((int) event.getX(), (int) event.getY());
-                HazardousItems.get(0).isTouched(touchPoint);
-                HazardousItems.get(1).isTouched(touchPoint);
-                HazardousItems.get(2).isTouched(touchPoint);
-                HazardousItems.get(3).isTouched(touchPoint);
+                for(FindingHazardousItem hazardousItem:HazardousItems){
+                    hazardousItem.isTouched(touchPoint);
+                }
         }
         return super.onTouchEvent(event);
     }
 
     public void update(){
+        super.update();
         for(FindingHazardousItem hazardousItem:HazardousItems){
+            hazardousItem.update();
             if (hazardousItem.getWasTouched()){
                 HazardousItems.remove(hazardousItem);
             }
@@ -77,6 +81,9 @@ public class FindingGamePanel extends GamePanel {
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
+        for(FindingHazardousItem hazardousItem:HazardousItems) {
+            hazardousItem.draw(canvas);
+        }
     }
 
 }

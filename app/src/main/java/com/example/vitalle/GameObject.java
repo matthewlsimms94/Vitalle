@@ -17,8 +17,8 @@ public abstract class GameObject {
         rectangle = new Rect(x - width / 2, y - height / 2, x + width / 2, y + height / 2);
         this.x = x;
         this.y = y;
-        this.iHeight = width;
-        this.iWidth = height;
+        this.iWidth = width;
+        this.iHeight = height;
         this.sprite = sprite;
     }
 

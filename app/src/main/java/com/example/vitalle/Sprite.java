@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 import android.widget.ImageView;
 import android.graphics.Rect;
 
@@ -65,8 +66,15 @@ public class Sprite {
     }
 
     void draw(Canvas canvas){
+        float xFloat = (float)x;
+        float yFloat = (float)y;
+        float widthFloat = (float)iFrameWidth;
+        float heightFloat = (float)iFrameHeight;
+
+        Log.e("TEMP","SIZES: "+scaleX + " " + scaleY);
+
         Rect src = new Rect(0,0,iFrameWidth-1, iFrameHeight-1);
-        Rect dest = new Rect((int)(x*scaleX),(int)(y*scaleY),(int)((x+iFrameWidth-1)*scaleX), (int)((y+iFrameHeight-1)*scaleY));
+        Rect dest = new Rect((int)(xFloat*scaleX),(int)(yFloat*scaleY),(int)((xFloat+widthFloat-1)*scaleX), (int)((yFloat+heightFloat-1)*scaleY));
         canvas.drawBitmap(bFrame, src, dest, null);
         //canvas.drawBitmap(bFrame,x,y,null);
         //imTarget.setImageDrawable(new BitmapDrawable(parentContext.getResources(), bFrame));

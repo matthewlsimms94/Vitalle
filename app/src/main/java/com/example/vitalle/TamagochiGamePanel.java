@@ -73,6 +73,7 @@ public class TamagochiGamePanel extends GamePanel{
     }
 
     public void update(){
+        super.update();
         //update the coordinates of the item
         buttonFood.update();
     }
