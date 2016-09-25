@@ -7,18 +7,20 @@ import android.graphics.Rect;
 /**
  * Created by Note05 on 24/09/2016.
  */
-public class Items extends GameObject {
+public class HazardousItems extends GameObject {
 
     //instance variables
-    private Rect rectangle;
+    boolean wasTouched = false;
 
     //constructor
-    public Items (x,y,height,width){
-        this.rectangle = rectangle;
+    public HazardousItems(int x,int y,int height,int width){
+        super(x, y, height, width);
     }
+
     @Override
     public void draw(Canvas canvas){
         //draw item onto the canvas
+        //if wasTouched = true do not drawn;
         /*paint paint = new paint
         canvas.drawRect(rectangle, paint);
         * */
@@ -26,11 +28,14 @@ public class Items extends GameObject {
 
     @Override
     public void update(){
-
+        if (wasTouched = true){
+            //stop updating
+        }
     }
-    //coordinates of item
-    public void update(Point point){
-        //ltrb
-        rectangle.get(/*position*/);
-         }
+
+    public void onTouch(){
+        wasTouched = true;
+        //Disappear
+    }
+
 }
