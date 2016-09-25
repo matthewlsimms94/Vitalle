@@ -15,7 +15,7 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {//Needs to check if running soon
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        mainPanel =  new GamePanel(this);
+        mainPanel =  new TamagochiGamePanel(this);
         setContentView(mainPanel);
 
         //setContentView(R.layout.activity_main);

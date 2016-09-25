@@ -22,16 +22,12 @@ public class FindingHazardousItem extends GameObject {
 
     @Override
     public void draw(Canvas canvas){
-        //draw item onto the canvas
-        //switch case itemId -> which item is going to be drawn
-        //if wasTouched = true -> do not drawn;
-        /*paint paint = new paint
-        canvas.drawRect(rectangle, paint);
-        * */
+        super.draw(canvas);
     }
 
     @Override
     public void update(){
+        super.update();
         if (wasTouched){
             //stop updating
         }

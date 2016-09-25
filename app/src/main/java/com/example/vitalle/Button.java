@@ -28,15 +28,12 @@ public class Button extends GameObject {
 
     @Override
     public void draw(Canvas canvas){
-        //draw item onto the canvas
-        /*paint paint = new paint
-        canvas.drawRect(rectangle, paint);
-        * */
+       super.draw(canvas);
     }
 
     @Override
     public void update(){
-
+        super.update();
     }
 
     @Override

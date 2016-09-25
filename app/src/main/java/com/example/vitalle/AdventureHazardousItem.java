@@ -8,8 +8,8 @@ import android.graphics.Canvas;
 public class AdventureHazardousItem extends GameObject{
 
     //Constructor
-    public AdventureHazardousItem(int x, int y, int height, int width){
-        super(x, y, height, width);
+    public AdventureHazardousItem(int x, int y, int height, int width, Sprite sprite){
+        super(x, y, height, width, sprite);
     }
 
     public void onTouch(){

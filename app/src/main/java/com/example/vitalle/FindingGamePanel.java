@@ -28,20 +28,20 @@ public class FindingGamePanel extends GamePanel {
 
         thread = new MainThread(getHolder(),this);
 
+        Sprite testSprite = new Sprite(R.drawable.test_sheet, context, 6, 6, scaleX, scaleY);
+
         touchPoint = new Point(0,0);
         Random r = new Random();
         int randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(100, 100, 200, 200, randomId));
+        HazardousItems.add(new FindingHazardousItem(100, 100, 200, 200, randomId,testSprite));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(400,400,200,200,randomId));
+        HazardousItems.add(new FindingHazardousItem(400,400,200,200,randomId,testSprite));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(100,400,200,200,randomId));
+        HazardousItems.add(new FindingHazardousItem(100,400,200,200,randomId,testSprite));
         randomId = r.nextInt(4);
-        HazardousItems.add(new FindingHazardousItem(400,100,200,200,randomId));
+        HazardousItems.add(new FindingHazardousItem(400,100,200,200,randomId,testSprite));
 
         setFocusable(true);
-
-        Reminder.scheduleNotification(Reminder.getNotification("HELP!","I'm having an attack and I'm going to die and it's all your fault!",context),10,context);
 
     }
 
