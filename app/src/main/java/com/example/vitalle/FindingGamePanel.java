@@ -45,31 +45,7 @@ public class FindingGamePanel extends GamePanel {
 
     }
 
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height){
 
-
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder holder){
-        thread = new MainThread(getHolder(),this);
-
-        thread.setRunning(true);
-        thread.start();
-    }
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder){
-        boolean retry = true;
-
-        while(true){
-            try{
-                thread.setRunning(false);
-                thread.join();
-            }catch(Exception e){e.printStackTrace();}
-            retry = false;
-        }
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
@@ -94,7 +70,6 @@ public class FindingGamePanel extends GamePanel {
         if(HazardousItems.isEmpty()){
             Intent goToTamagochi = new Intent(parentContext,TamagochiGamePanel.class);
             parentContext.startActivity(goToTamagochi);
-            //Go back to the tamagochi
         }
         //update the coordinates of the item
     }

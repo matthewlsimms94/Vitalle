@@ -26,7 +26,7 @@ public class TamagochiGamePanel extends GamePanel{
 
         thread = new MainThread(getHolder(),this);
 
-        buttonFood = new Button(150,150,100,100,1); //x, y, height, width
+        buttonFood = new Button(150,150,100,100,1, parentContext); //x, y, height, width
         touchPoint = new Point(0,0);
 
         setFocusable(true);
