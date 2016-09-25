@@ -16,7 +16,6 @@ public class MainThread extends Thread {
 
     public void setRunning(boolean running){
         this.running = running;
-
     }
 
     public MainThread(SurfaceHolder surfaceHolder, GamePanel gamePanel){
@@ -66,7 +65,6 @@ public class MainThread extends Thread {
                 averageFPS = 1000/((totalTime/frameCount)/1000000);
                 frameCount = 0;
                 totalTime = 0;
-
             }
         }
     }

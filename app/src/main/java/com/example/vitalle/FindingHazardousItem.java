@@ -12,7 +12,7 @@ public class FindingHazardousItem extends GameObject {
     //instance variables
     boolean wasTouched = false;
 
-    //constructor
+    //Constructor
     public FindingHazardousItem(int x, int y, int height, int width){
         super(x, y, height, width);
     }
@@ -28,14 +28,15 @@ public class FindingHazardousItem extends GameObject {
 
     @Override
     public void update(){
-        if (wasTouched = true){
+        if (wasTouched == true){
             //stop updating
         }
     }
 
+    @Override
     public void onTouch(){
         wasTouched = true;
         //Disappear
     }
-
+    
 }

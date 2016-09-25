@@ -10,10 +10,10 @@ import android.graphics.Rect;
 public abstract class GameObject {
 
     int x,y,height,width;
-    Rect rectangule;
+    Rect rectangle;
 
     public GameObject(int x,int y,int height,int width){
-        rectangule = new Rect(x-width/2,y-height/2,x+width/2,y+height/2);
+        rectangle = new Rect(x-width/2,y-height/2,x+width/2,y+height/2);
         this.x = x;
         this.y = y;
         this.width = width;
@@ -25,8 +25,6 @@ public abstract class GameObject {
         if ((touchPoint.x >= x-width/2 && touchPoint.x <= x+width/2) && (touchPoint.y >= y-height/2 && touchPoint.y <= y+height/2)){
             onTouch();
         }
-        //check for touch blah blah
-        //if true
     }
     public abstract void onTouch();
     public abstract void draw(Canvas canvas);

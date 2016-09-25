@@ -12,40 +12,54 @@ import android.widget.ImageView;
  * Created by samsung on 9/24/2016.
  */
 public class Sprite {
-    private int iCurrentSprite;
-    private int iNumberOfSprites;
+    private int iCurrentFrame;
+    private int iNumberOfFrames;
+
     private int iFrameLength;
+    private int iFrameCounter;
+
     private int iFrameWidth;
     private int iFrameHeight;
-    private ImageView imTarget;
-    public int iViewId;
+
+    private int x, y;
+
     private Bitmap bSource;
     private Bitmap bFrame;
-    private Context parentContext;
 
-    public Sprite(ImageView target, Context thisContext, int resourceId) {
-        parentContext = thisContext;
-        imTarget = target;
+    //private Context parentContext;
+
+    public Sprite(int resourceId, Context parentContext, int numberOfFrames, int frameLength) {
         bSource = BitmapFactory.decodeResource(parentContext.getResources(), resourceId);
 
-        iCurrentSprite = 0;
-        iNumberOfSprites = 6;
+        iCurrentFrame = 0;
+        iNumberOfFrames = numberOfFrames;
+        iFrameLength = frameLength;
+        iFrameCounter = 0;
 
-        iFrameWidth = bSource.getWidth()/iNumberOfSprites;
+        x = 50;
+        y = 50;
+
+        iFrameWidth = bSource.getWidth()/iNumberOfFrames;
         iFrameHeight = bSource.getHeight();
         bFrame = Bitmap.createBitmap(iFrameWidth, iFrameHeight, Bitmap.Config.RGB_565);
         //cTarget = new Canvas(bSource);
     }
 
     void update(){
-        iCurrentSprite++;
-        if (iCurrentSprite >= iNumberOfSprites)
-            iCurrentSprite = 0;
-        bFrame = Bitmap.createBitmap(bSource,iCurrentSprite*iFrameWidth,0,iFrameWidth,iFrameHeight);
+        iFrameCounter++;
+        if (iFrameCounter >= iFrameLength)
+        {
+            iFrameCounter = 0;
+            iCurrentFrame++;
+            if (iCurrentFrame >= iNumberOfFrames)
+                iCurrentFrame = 0;
+            bFrame = Bitmap.createBitmap(bSource,iCurrentFrame*iFrameWidth,0,iFrameWidth,iFrameHeight);
+        }
     }
 
-    void draw(){
-        imTarget.setImageDrawable(new BitmapDrawable(parentContext.getResources(), bFrame));
+    void draw(Canvas canvas){
+        canvas.drawBitmap(bFrame,x,y,null);
+        //imTarget.setImageDrawable(new BitmapDrawable(parentContext.getResources(), bFrame));
     }
 
 }
