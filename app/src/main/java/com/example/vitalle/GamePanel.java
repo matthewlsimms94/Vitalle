@@ -8,14 +8,37 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.Display;
+import android.view.WindowManager;
+
 
 
 public abstract class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
     protected Context parentContext;
 
+    protected float scaleX,scaleY;
+    protected float screenX,screenY;
+    protected final float canvasX = 1080, canvasY = 1920;
+
     public GamePanel(Context context){
         super(context);
+
+        getHolder().addCallback(this);
+
+        thread = new MainThread(getHolder(),this);
+
+        //Get the screen dimensions for scaling
+        Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        screenX = size.x;
+        screenY = size.y;
+        //Get the scale
+        scaleX = screenX/canvasX;
+        scaleY = screenY/canvasY;
+
+        setFocusable(true);
         parentContext = context;
     }
 
@@ -31,6 +54,7 @@ public abstract class GamePanel extends SurfaceView implements SurfaceHolder.Cal
         thread.setRunning(true);
         thread.start();
     }
+
     @Override
     public void surfaceDestroyed(SurfaceHolder holder){
         boolean retry = true;

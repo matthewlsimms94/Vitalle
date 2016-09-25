@@ -7,28 +7,37 @@ import android.graphics.Canvas;
  */
 public class Character extends GameObject {
 
-    int iFood, iHealth, iFun;
-    int iMax;
-    int lowFood;
+    static public int iFood, iHealth, iFun;
+    static final public int iMax = 100;
+    static int lowFood;
 
-    Character()
-    {
-        super();
+    Character(int x, int y, int height, int width, Sprite sprite) {
+        super(x, y, height, width, sprite);
+        iFood = iMax;
+        iHealth = iMax;
+        iFun = iMax;
     }
 
     @Override
-    public void onTouch()
-    {
+    public void onTouch() {
 
     }
 
-    public void draw(Canvas canvas)
-    {
 
+    public void update() {
+        iFood--;
+        iHealth--;
+        iFun--;
     }
 
-    public void update()
+    public static void addFood()
     {
-
+        iFood = iMax;
     }
+
+    public static void addHealth()
+    {
+        iHealth = iMax;
+    }
+
 }

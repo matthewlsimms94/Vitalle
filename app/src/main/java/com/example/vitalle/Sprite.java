@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
+import android.graphics.Rect;
 
 /**
  * Created by samsung on 9/24/2016.
@@ -22,13 +23,14 @@ public class Sprite {
     private int iFrameHeight;
 
     private int x, y;
+    private float scaleX,scaleY;
 
     private Bitmap bSource;
     private Bitmap bFrame;
 
     //private Context parentContext;
 
-    public Sprite(int resourceId, Context parentContext, int numberOfFrames, int frameLength) {
+    public Sprite(int resourceId, Context parentContext, int numberOfFrames, int frameLength, float scaleX, float scaleY) {
         bSource = BitmapFactory.decodeResource(parentContext.getResources(), resourceId);
 
         iCurrentFrame = 0;
@@ -39,13 +41,18 @@ public class Sprite {
         x = 50;
         y = 50;
 
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+
         iFrameWidth = bSource.getWidth()/iNumberOfFrames;
         iFrameHeight = bSource.getHeight();
         bFrame = Bitmap.createBitmap(iFrameWidth, iFrameHeight, Bitmap.Config.RGB_565);
         //cTarget = new Canvas(bSource);
     }
 
-    void update(){
+    void update(int x, int y){
+        this.x = x;
+        this.y = y;
         iFrameCounter++;
         if (iFrameCounter >= iFrameLength)
         {
@@ -58,7 +65,10 @@ public class Sprite {
     }
 
     void draw(Canvas canvas){
-        canvas.drawBitmap(bFrame,x,y,null);
+        Rect src = new Rect(0,0,iFrameWidth-1, iFrameHeight-1);
+        Rect dest = new Rect((int)(x*scaleX),(int)(y*scaleY),(int)((x+iFrameWidth-1)*scaleX), (int)((y+iFrameHeight-1)*scaleY));
+        canvas.drawBitmap(bFrame, src, dest, null);
+        //canvas.drawBitmap(bFrame,x,y,null);
         //imTarget.setImageDrawable(new BitmapDrawable(parentContext.getResources(), bFrame));
     }
 

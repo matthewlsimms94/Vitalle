@@ -14,9 +14,10 @@ public class FindingHazardousItem extends GameObject {
     private int itemId;
 
     //Constructor
-    public FindingHazardousItem(int x, int y, int height, int width,int itemId){
-        super(x, y, height, width);
+    public FindingHazardousItem(int x, int y, int height, int width,int itemId, Sprite sprite){
+        super(x, y, height, width, sprite);
         this.itemId = itemId;
+
     }
 
     @Override
@@ -31,7 +32,7 @@ public class FindingHazardousItem extends GameObject {
 
     @Override
     public void update(){
-        if (wasTouched == true){
+        if (wasTouched){
             //stop updating
         }
     }

@@ -19,8 +19,9 @@ public class Button extends GameObject {
     3. Go to minigames
      */
 
-    public Button(int x, int y, int height, int width, int buttonId, Context panelContext){
-        super(x,y,height,width);
+
+    public Button(int x, int y, int height, int width, int buttonId, Context panelContext, Sprite sprite){
+        super(x,y,height,width,sprite);
         this.buttonId = buttonId;
         this.panelContext = panelContext;
     }
