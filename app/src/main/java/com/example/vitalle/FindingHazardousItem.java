@@ -38,9 +38,4 @@ public class FindingHazardousItem extends GameObject {
         //Disappear
     }
 
-    public static void doAThing()
-    {
-
-    }
-
 }

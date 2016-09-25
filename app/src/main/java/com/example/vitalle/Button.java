@@ -1,5 +1,6 @@
 package com.example.vitalle;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 
 /**
@@ -8,7 +9,12 @@ import android.graphics.Canvas;
 public class Button extends GameObject {
 
 
-    int buttonId;
+    private int buttonId;
+    /*
+    1. Give Medicine
+    2. Give Food
+    3. Go to minigames
+     */
 
     public Button(int x, int y, int height, int width, int buttonId){
         super(x,y,height,width);
@@ -32,7 +38,14 @@ public class Button extends GameObject {
     public void onTouch(){
         switch(buttonId){
             case 1:
-                FindingHazardousItem.doAThing();
+                // give medicine
+                break;
+            case 2:
+                // give food
+                break;
+            case 3:
+                //go to game menu
+                break;
         }
     }
 
