@@ -32,6 +32,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
         setFocusable(true);
 
+        Reminder.scheduleNotification(Reminder.getNotification("HELP!","I'm having an attack and I'm going to die and it's all your fault!",context),10,context);
+
         testSprite = new Sprite(R.drawable.test_sheet,context,6,6);
     }
 

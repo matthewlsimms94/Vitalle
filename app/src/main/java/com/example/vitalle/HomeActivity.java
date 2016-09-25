@@ -13,6 +13,7 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(new GamePanel(this));
+
         //setContentView(R.layout.activity_main);
         //ViewStub viewStub = (ViewStub) findViewById(R.id.homeGameView);
         //viewStub//
