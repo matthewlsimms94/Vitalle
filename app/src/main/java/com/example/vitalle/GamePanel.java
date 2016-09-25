@@ -13,7 +13,7 @@ import android.view.SurfaceView;
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
 
-    private HazardousItems item;
+    private Button buttonFood;
     private Point touchPoint;
 
     public GamePanel(Context context){
@@ -23,8 +23,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
         thread = new MainThread(getHolder(),this);
 
-        item = new HazardousItems(new Rect(100,100,200,200));
-        touchPoint = new Point(150,150);
+        buttonFood = new Button(150,150,100,100,1); //x, y, height, width
+        touchPoint = new Point(0,0);
 
         setFocusable(true);
 
@@ -47,6 +47,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceDestroyed(SurfaceHolder holder){
         boolean retry = true;
+
         while(true){
             try{
                 thread.setRunning(false);
@@ -58,12 +59,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
-        return super.onTouchEvent(event);
+        //when the user presses down on the surface
+        switch(event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                touchPoint.set((int) event.getX(), (int) event.getY());
+                buttonFood.isTouched(touchPoint);
 
-        //when the user presses down on the surface]
-        case MotionEvent.ACTION_DOWN;
-            touchPoint.set((int) event.getX(), (int) event.getY());
-            item.isTouched(touchPoint)
+        }
+        return super.onTouchEvent(event);
     }
 
     public void update(){
@@ -74,7 +77,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas){
         super.draw(canvas);
 
-        item.draw(canvas);
+        buttonFood.draw(canvas);
     }
 
 }

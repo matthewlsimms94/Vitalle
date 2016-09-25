@@ -7,13 +7,13 @@ import android.graphics.Rect;
 /**
  * Created by Note05 on 24/09/2016.
  */
-public class HazardousItems extends GameObject {
+public class FindingHazardousItem extends GameObject {
 
     //instance variables
     boolean wasTouched = false;
 
     //constructor
-    public HazardousItems(int x,int y,int height,int width){
+    public FindingHazardousItem(int x, int y, int height, int width){
         super(x, y, height, width);
     }
 
@@ -36,6 +36,11 @@ public class HazardousItems extends GameObject {
     public void onTouch(){
         wasTouched = true;
         //Disappear
+    }
+
+    public static void doAThing()
+    {
+
     }
 
 }
