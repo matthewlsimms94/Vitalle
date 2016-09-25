@@ -13,8 +13,8 @@ public class FindingHazardousItem extends GameObject {
     boolean wasTouched = false;
 
     //Constructor
-    public FindingHazardousItem(int x, int y, int height, int width){
-        super(x, y, height, width);
+    public FindingHazardousItem(int x, int y, int height, int width, Sprite sprite){
+        super(x, y, height, width, sprite);
     }
 
     @Override

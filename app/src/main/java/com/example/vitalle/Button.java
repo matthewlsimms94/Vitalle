@@ -10,8 +10,8 @@ public class Button extends GameObject {
 
     int buttonId;
 
-    public Button(int x, int y, int height, int width, int buttonId){
-        super(x,y,height,width);
+    public Button(int x, int y, int height, int width, int buttonId, Sprite sprite){
+        super(x,y,height,width, sprite);
         this.buttonId = buttonId;
     }
 
