@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -30,13 +31,17 @@ public abstract class GamePanel extends SurfaceView implements SurfaceHolder.Cal
 
         //Get the screen dimensions for scaling
         Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Point size = new Point();
         display.getSize(size);
+        DisplayMetrics metrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(metrics);
+        float density = metrics.density;
         screenX = size.x;
         screenY = size.y;
         //Get the scale
-        scaleX = screenX/canvasX;
-        scaleY = screenY/canvasY;
+        scaleX = (screenX/canvasX)/density;//screenX/canvasX;
+        scaleY = (screenY/canvasY)/density;//screenY/canvasY;
 
         setFocusable(true);
         parentContext = context;

@@ -10,20 +10,26 @@ import android.graphics.Rect;
 public abstract class GameObject {
 
     int x, y, iHeight, iWidth;
+    float scaleX, scaleY;
     Rect rectangle;
     Sprite sprite;
 
-    public GameObject(int x, int y, int height, int width, Sprite sprite) {
-        rectangle = new Rect(x - width / 2, y - height / 2, x + width / 2, y + height / 2);
+    public GameObject(int x, int y, int height, int width, Sprite sprite, float xScale, float yScale) {
+        rectangle = new Rect(x, y, x + width , y + height);
         this.x = x;
         this.y = y;
-        this.iHeight = width;
-        this.iWidth = height;
+        this.iWidth = width;
+        this.iHeight = height;
+        this.scaleX = xScale;
+        this.scaleY = yScale;
         this.sprite = sprite;
     }
 
     public void isTouched(Point touchPoint) {
-        if ((touchPoint.x >= x - iWidth / 2 && touchPoint.x <= x + iWidth / 2) && (touchPoint.y >= y - iHeight / 2 && touchPoint.y <= y + iHeight / 2)) {
+        Point scaledTouchPoint = new Point();
+        scaledTouchPoint.x = (int)(touchPoint.x/scaleX);
+        scaledTouchPoint.x = (int)(touchPoint.x/scaleX);
+        if ((scaledTouchPoint.x >= x && touchPoint.x <= x + iWidth) && (touchPoint.y >= y && touchPoint.y <= y + iHeight)) {
             onTouch();
         }
     }
