@@ -22,6 +22,8 @@ public class HomeActivity extends Activity {
         //ViewStub viewStub = (ViewStub) findViewById(R.id.homeGameView);
         //viewStub//
     }
+
+
 /*
     @Override
     public void onResume()

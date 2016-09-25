@@ -7,15 +7,19 @@ import android.graphics.Canvas;
  */
 public class Character extends GameObject {
 
-    static public int iFood, iHealth, iFun;
-    static final public int iMax = 100;
+    static public float fFood, fHealth, fFun;
+    static final public float fMax = 100;
     static int lowFood;
+    static final float highHealth = 80, healthHurt = 10;
+    static long lastMed = -1;
+    int iFrameCount = 0;
 
     Character(int x, int y, int height, int width, Sprite sprite,float xScale,float yScale) {
         super(x, y, height, width, sprite, xScale, yScale);
-        iFood = iMax;
-        iHealth = iMax;
-        iFun = iMax;
+        fFood = fMax;
+        fHealth = fMax;
+        fFun = fMax;
+
     }
 
     @Override
@@ -25,19 +29,30 @@ public class Character extends GameObject {
 
 
     public void update() {
-        iFood--;
-        iHealth--;
-        iFun--;
+        super.update();
+        iFrameCount++;
+        if (iFrameCount%7 == 0)
+            fFood--;
+        if (iFrameCount%30 == 0)
+            fHealth--;
+        if (iFrameCount%15 == 0)
+            fFun--;
     }
 
     public static void addFood()
     {
-        iFood = iMax;
+        fFood = fMax;
     }
 
-    public static void addHealth()
-    {
-        iHealth = iMax;
+    public static void addHealth() {
+        if (System.currentTimeMillis() > lastMed + 5000)
+        {
+            fHealth = fMax;
+            lastMed = System.currentTimeMillis();
+        }
+        else
+            fHealth -= healthHurt;
+
     }
 
 }

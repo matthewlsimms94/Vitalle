@@ -28,8 +28,8 @@ public abstract class GameObject {
     public void isTouched(Point touchPoint) {
         Point scaledTouchPoint = new Point();
         scaledTouchPoint.x = (int)(touchPoint.x/scaleX);
-        scaledTouchPoint.x = (int)(touchPoint.x/scaleX);
-        if ((scaledTouchPoint.x >= x && touchPoint.x <= x + iWidth) && (touchPoint.y >= y && touchPoint.y <= y + iHeight)) {
+        scaledTouchPoint.y = (int)(touchPoint.y/scaleY);
+        if ((scaledTouchPoint.x >= x && scaledTouchPoint.x <= x + iWidth) && (scaledTouchPoint.y >= y && scaledTouchPoint.y <= y + iHeight)) {
             onTouch();
         }
     }

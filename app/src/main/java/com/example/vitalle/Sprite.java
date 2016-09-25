@@ -23,8 +23,10 @@ public class Sprite {
     private int iFrameWidth;
     private int iFrameHeight;
 
+    public float scaleSizeX = 0;
+
     private int x, y;
-    private float scaleX,scaleY;
+    public float scaleX,scaleY;
 
     private Bitmap bSource;
     private Bitmap bFrame;
@@ -71,10 +73,14 @@ public class Sprite {
         float widthFloat = (float)iFrameWidth;
         float heightFloat = (float)iFrameHeight;
 
-        Log.e("TEMP","SIZES: "+scaleX + " " + scaleY);
+        //Log.e("TEMP","SIZES: "+scaleX + " " + scaleY);
 
         Rect src = new Rect(0,0,iFrameWidth-1, iFrameHeight-1);
-        Rect dest = new Rect((int)(xFloat*scaleX),(int)(yFloat*scaleY),(int)((xFloat+widthFloat-1)*scaleX), (int)((yFloat+heightFloat-1)*scaleY));
+        Rect dest;
+        if (scaleSizeX == 0)
+            dest = new Rect((int)(xFloat*scaleX),(int)(yFloat*scaleY),(int)((xFloat+widthFloat-1)*scaleX), (int)((yFloat+heightFloat-1)*scaleY));
+        else
+            dest = new Rect((int)(xFloat*scaleX),(int)(yFloat*scaleY),(int)((xFloat+widthFloat-1)*scaleX*scaleSizeX), (int)((yFloat+heightFloat-1)*scaleY));
         canvas.drawBitmap(bFrame, src, dest, null);
         //canvas.drawBitmap(bFrame,x,y,null);
         //imTarget.setImageDrawable(new BitmapDrawable(parentContext.getResources(), bFrame));

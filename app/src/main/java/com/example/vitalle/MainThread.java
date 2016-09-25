@@ -11,7 +11,7 @@ import android.view.SurfaceView;
 public class MainThread extends Thread {
     public static final int MAX_FPS = 30;
     private double averageFPS;
-    private SurfaceHolder surfaceHolder;
+    public SurfaceHolder surfaceHolder;
     private GamePanel gamePanel;
     private boolean running;
     public static Canvas canvas;
@@ -69,6 +69,10 @@ public class MainThread extends Thread {
                 totalTime = 0;
             }
         }
+        surfaceHolder.unlockCanvasAndPost(canvas);
+        //canvas = this.surfaceHolder.lockCanvas();
+        //surfaceHolder.unlockCanvasAndPost(canvas);
+        //interrupt();
     }
 
 }
