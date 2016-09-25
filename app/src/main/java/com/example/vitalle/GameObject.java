@@ -30,10 +30,12 @@ public abstract class GameObject {
 
     public abstract void onTouch();
 
-    public void draw(Canvas canvas)
-    {
+    public void draw(Canvas canvas) {
         sprite.draw(canvas);
     }
 
-    public abstract void update();
+    public void update()
+    {
+        sprite.update(x,y);
+    }
 }

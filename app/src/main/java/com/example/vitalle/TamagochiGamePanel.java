@@ -26,14 +26,13 @@ public class TamagochiGamePanel extends GamePanel{
 
         thread = new MainThread(getHolder(),this);
 
-        buttonFood = new Button(150,150,100,100,1, parentContext); //x, y, height, width
+        testSprite = new Sprite(R.drawable.test_sheet,context,1,2, scaleX, scaleY);
+
+        buttonFood = new Button(5,5,100,100,1, context,testSprite); //x, y, height, width
         touchPoint = new Point(0,0);
 
         setFocusable(true);
 
-        Reminder.scheduleNotification(Reminder.getNotification("HELP!","I'm having an attack and I'm going to die and it's all your fault!",context),10,context);
-
-        testSprite = new Sprite(R.drawable.test_sheet,context,6,6);
     }
 
     @Override
@@ -74,14 +73,13 @@ public class TamagochiGamePanel extends GamePanel{
     }
 
     public void update(){
-        testSprite.update();
         //update the coordinates of the item
+        buttonFood.update();
     }
 
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
-        testSprite.draw(canvas);
         buttonFood.draw(canvas);
     }
 
