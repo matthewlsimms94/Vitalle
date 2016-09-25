@@ -1,6 +1,9 @@
 package com.example.vitalle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
+import android.view.ContextMenu;
 
 /**
  * Created by Note05 on 25/09/2016.
@@ -8,11 +11,19 @@ import android.graphics.Canvas;
 public class Button extends GameObject {
 
 
-    int buttonId;
+    private int buttonId;
+    private Context panelContext;
+    /*
+    1. Give Medicine
+    2. Give Food
+    3. Go to minigames
+     */
 
-    public Button(int x, int y, int height, int width, int buttonId, Sprite sprite){
-        super(x,y,height,width, sprite);
+
+    public Button(int x, int y, int height, int width, int buttonId, Context panelContext, Sprite sprite){
+        super(x,y,height,width,sprite);
         this.buttonId = buttonId;
+        this.panelContext = panelContext;
     }
 
     @Override
@@ -32,7 +43,16 @@ public class Button extends GameObject {
     public void onTouch(){
         switch(buttonId){
             case 1:
-                FindingHazardousItem.doAThing();
+                // give medicine
+                break;
+            case 2:
+                // give food
+                break;
+            case 3:
+                Intent goToTamagochi = new Intent(panelContext,TamagochiGamePanel.class);
+                panelContext.startActivity(goToTamagochi);
+                //go to game menu
+                break;
         }
     }
 

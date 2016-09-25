@@ -10,17 +10,21 @@ import android.graphics.Rect;
 public class FindingHazardousItem extends GameObject {
 
     //instance variables
-    boolean wasTouched = false;
+    private boolean wasTouched = false;
+    private int itemId;
 
     //Constructor
-    public FindingHazardousItem(int x, int y, int height, int width, Sprite sprite){
+    public FindingHazardousItem(int x, int y, int height, int width,int itemId, Sprite sprite){
         super(x, y, height, width, sprite);
+        this.itemId = itemId;
+
     }
 
     @Override
     public void draw(Canvas canvas){
         //draw item onto the canvas
-        //if wasTouched = true do not drawn;
+        //switch case itemId -> which item is going to be drawn
+        //if wasTouched = true -> do not drawn;
         /*paint paint = new paint
         canvas.drawRect(rectangle, paint);
         * */
@@ -28,19 +32,21 @@ public class FindingHazardousItem extends GameObject {
 
     @Override
     public void update(){
-        if (wasTouched == true){
+        if (wasTouched){
             //stop updating
         }
     }
 
     @Override
     public void onTouch(){
-        wasTouched = true;
+        if (itemId < 4) {
+            wasTouched = true;
+        }
         //Disappear
     }
 
-    public static void doAThing()
-    {
-
+    public boolean getWasTouched(){
+        return this.wasTouched;
     }
+
 }

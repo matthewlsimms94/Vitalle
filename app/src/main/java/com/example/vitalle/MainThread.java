@@ -1,7 +1,9 @@
 package com.example.vitalle;
 
 import android.graphics.Canvas;
+import android.view.Surface;
 import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
 /**
  * Created by Note05 on 24/09/2016.
