@@ -18,6 +18,7 @@ public class TamagochiGamePanel extends GamePanel{
     private Point itemPoint;
     private Button buttonFood;
     private Point touchPoint;
+    private Sprite background;
 
     public TamagochiGamePanel(Context context){
         super(context);
@@ -27,6 +28,8 @@ public class TamagochiGamePanel extends GamePanel{
         thread = new MainThread(getHolder(),this);
 
         testSprite = new Sprite(R.drawable.test_sheet,context,1,2, scaleX, scaleY);
+
+        background = new Sprite(R.drawable.home_bkg,context,1,2,scaleX,scaleY);
 
         buttonFood = new Button(5,5,100,100,1, context,testSprite); //x, y, height, width
         touchPoint = new Point(0,0);
@@ -75,12 +78,14 @@ public class TamagochiGamePanel extends GamePanel{
     public void update(){
         super.update();
         //update the coordinates of the item
+        background.update(0,0);
         buttonFood.update();
     }
 
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
+        background.draw(canvas);
         buttonFood.draw(canvas);
     }
 

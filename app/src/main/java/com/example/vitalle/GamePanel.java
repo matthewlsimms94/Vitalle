@@ -32,18 +32,17 @@ public abstract class GamePanel extends SurfaceView implements SurfaceHolder.Cal
 
         //Get the screen dimensions for scaling
         Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Point size = new Point();
+        display.getSize(size);
         DisplayMetrics metrics = new DisplayMetrics();
-        display.getMetrics(metrics);
-        //Canvas mainCanvas =
-        //int widt.h = metrics.widthPixels;
-        //int height = metrics.heightPixels;
-        screenX = metrics.widthPixels;
-        screenY = metrics.heightPixels;
-        Log.e("TEMP2", "SIZES: " + screenX + " " + screenY);
+        windowManager.getDefaultDisplay().getMetrics(metrics);
+        float density = metrics.density;
+        screenX = size.x;
+        screenY = size.y;
         //Get the scale
-        scaleX = screenX/canvasX;
-        scaleY = screenY/canvasY;
+        scaleX = (screenX/canvasX)/density;//screenX/canvasX;
+        scaleY = (screenY/canvasY)/density;//screenY/canvasY;
 
         setFocusable(true);
         parentContext = context;
